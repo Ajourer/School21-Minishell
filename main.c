@@ -65,14 +65,19 @@ void	parser(char **str, char **env)
 	while ((*str)[++i])
 	{
 		if ((*str)[i] == '\'')
+		{
 			*str = single_quotes(str, &i);
+			printf("len= %zu, i= %d\n", ft_strlen(*str), i);
+		}
 		if ((*str)[i] == '\"')
+		{
 			*str = double_quotes(str, &i, env);
+			printf("len= %zu, i= %d\n", ft_strlen(*str), i);
+		}
 		if ((*str)[i] == '$')
 			*str = dollar(str, &i, env);
-		//write(1, "\033[31m", strlen("\033[32m"));
-		//write(1, &(*str)[i], 1);
-		//write(1, "\033[0m", strlen("\033[0m"));
+		if ((*str)[i] == '\0')
+			break ;
 	}
 }
 
@@ -80,7 +85,7 @@ int	main(int argc, char **argv, char **env)
 {
 	//char *str = ft_strdup("\"\'\"$USER\"\'\"");
 	//char *str = ft_strdup("\"\'\" $USER\"\'\"");
-	char *str = ft_strdup("'\"'$USER'\"'");
+	char *str = ft_strdup(" \"'$USER'\"  'hahaha   '  \" $PWD\"da '$PWD'");
 
 	printf("str = %s\n", str);
 	parser(&str, env);

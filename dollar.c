@@ -44,7 +44,8 @@ char	*dollar(char **str, int *i, char **env)
 		return (*str);
 	arg = swap(str, val, i, j);
 	free(*str);
-	*i -= *i - j - strlen(val);
+	if ((*i - j) > ft_strlen(val))
+		*i -= *i - j - ft_strlen(val);
 	printf("dollar arg = %s\n", arg);
 	return (arg);
 }
