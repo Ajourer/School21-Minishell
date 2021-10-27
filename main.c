@@ -85,7 +85,7 @@ int	main(int argc, char **argv, char **env)
 {
 	//char *str = ft_strdup("\"\'\"$USER\"\'\"");
 	//char *str = ft_strdup("\"\'\" $USER\"\'\"");
-	char *str = ft_strdup(" \"'$USER'\"  'hahaha   '  \" $PWD\"da '$PWD'");
+	char *str = ft_strdup("\"$UUSER\" $USER $ USER");
 
 	printf("str = %s\n", str);
 	parser(&str, env);
